@@ -15,7 +15,7 @@ void OnTriggerEnter(Collider other) {
         hasKnife = true;
     }
     if (other.tag == "oven"&&hasKnife){
-
+        
     }
 }
     // Update is called once per frame

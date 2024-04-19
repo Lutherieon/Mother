@@ -276,6 +276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8725525ce2d4cf40b9cd03308264e98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 2
   m_Camera: {fileID: 1691196414}
 --- !u!54 &87634492
 Rigidbody:
@@ -302,7 +303,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &87634493
 MonoBehaviour:
@@ -593,7 +594,7 @@ Rigidbody:
   m_GameObject: {fileID: 1281263930}
   serializedVersion: 4
   m_Mass: 1
-  m_Drag: 0
+  m_Drag: 1
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -609,7 +610,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!1 &1449718362
 GameObject:
@@ -636,7 +637,7 @@ Transform:
   m_GameObject: {fileID: 1449718362}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.658, y: 0, z: 0}
+  m_LocalPosition: {x: 0.08, y: 0, z: 1.807}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
