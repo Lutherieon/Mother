@@ -6,7 +6,7 @@ using UnityEngine;
 public class FPS : MonoBehaviour
 {
 
-    private float speed = 5.0f;
+    [SerializeField] float speed = 5.0f;
     private float m_MovX;
     private float m_MovY;
     private Vector3 m_moveHorizontal;

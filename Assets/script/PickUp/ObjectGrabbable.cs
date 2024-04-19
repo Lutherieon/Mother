@@ -4,15 +4,35 @@ using UnityEngine;
 
 public class ObjectGrabbable : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private Rigidbody rb;
+    private Transform objectGrabPointTransform;
+
+    private void Awake()
     {
-        
+        rb = GetComponent<Rigidbody>();
+
+    }
+    public void Grab(Transform ObjectGrabPointTransform)
+    {
+        this.objectGrabPointTransform = ObjectGrabPointTransform;
+        rb.useGravity = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Drop()
     {
-        
+        this.objectGrabPointTransform = null;
+        rb.useGravity = true;
+
+
+    }
+
+    private void FixedUpdate()
+    {
+        if(objectGrabPointTransform != null)
+        {
+            float lerpSpeed = 10f;
+            Vector3 newPosition = Vector3.Lerp(transform.position, objectGrabPointTransform.position, lerpSpeed * Time.deltaTime);
+            rb.MovePosition(newPosition);
+        }
     }
 }
