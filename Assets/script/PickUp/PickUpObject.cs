@@ -48,6 +48,5 @@ public class PickUpObject : MonoBehaviour
 
         }
 
-        Debug.DrawRay(playerCameraTransform.position, playerCameraTransform.forward * PickUpDistance, Color.red);
     }
 }
