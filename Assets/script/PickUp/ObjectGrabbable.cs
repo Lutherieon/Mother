@@ -10,6 +10,7 @@ public class ObjectGrabbable : MonoBehaviour
     private Rigidbody rb;
     public Transform objectGrabPointTransform;
     public GameObject objectGrabObject; 
+    public GameObject point;
 
     private void Awake()
     {
@@ -59,16 +60,15 @@ public class ObjectGrabbable : MonoBehaviour
 
 
 
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if(other.gameObject.tag == "Bank")
-    //    {
-    //        Destroy(objectGrabObject);
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "Bank")
+        {
+            Destroy(objectGrabObject);
 
 
-
-    //    }
-    //}
+        }
+    }
 }
 
 
