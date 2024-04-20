@@ -1,43 +1,62 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Putting : MonoBehaviour
 {
-    private bool objectGrab; 
-    ObjectGrabbable objectGrabbable;
-    public Transform PutAreaPosition;
 
 
 
+
+
+
+    ObjectGrabbable grabbedObject;
     private void Awake()
     {
-        objectGrabbable = GetComponent<ObjectGrabbable>();  
+        GetComponent<ObjectGrabbable>();    
     }
     void Start()
     {
-    
-        
+
+        // Initialize variables here
     }
 
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        objectGrab = ObjectGrabbable.isGrabbed;
-        Debug.Log(objectGrab);
-    }
-
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (Input.GetKeyDown(KeyCode.F) && objectGrab && collision.gameObject.tag == "objectBank")
+        Debug.Log("Trigger entered: " + other.name);
+        if (other.gameObject.tag == "Bank")
         {
-            Debug.Log("f working");
-
-            objectGrabbable.objectGrabPointTransform = PutAreaPosition;
-
-
+            Destroy(grabbedObject.objectGrabObject);    
         }
-        
     }
+
+
+
+
+
+
+
+
+
+    //bool isgrabb;
+    //GameObject grabbedObject;
+
+    //void Start()
+    //{
+    //    // Initialize variables here
+    //    isgrabb = ObjectGrabbable.isGrabbed;
+    //    grabbedObject = ObjectGrabbable.objectGrabObject;
+    //}
+
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    Debug.Log(other.name);
+    //    if (isgrabb==true && grabbedObject != null && other.gameObject.tag == "Bank")
+    //    {
+    //        grabbedObject.transform.SetParent(other.transform);
+    //        Debug.Log(isgrabb);
+    //    }
+    //}
 }

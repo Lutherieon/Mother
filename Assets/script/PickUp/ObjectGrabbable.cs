@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ObjectGrabbable : MonoBehaviour
@@ -7,6 +9,7 @@ public class ObjectGrabbable : MonoBehaviour
     public static bool isGrabbed;
     private Rigidbody rb;
     public Transform objectGrabPointTransform;
+    public GameObject objectGrabObject; 
 
     private void Awake()
     {
@@ -17,7 +20,10 @@ public class ObjectGrabbable : MonoBehaviour
     {
 
         this.objectGrabPointTransform = ObjectGrabPointTransform;
+        objectGrabObject = this.gameObject;
+        Debug.Log(objectGrabObject);
         isGrabbed=true;
+        Debug.Log(isGrabbed);
         rb.useGravity = false;
     }
 
@@ -34,10 +40,35 @@ public class ObjectGrabbable : MonoBehaviour
     {
         if(objectGrabPointTransform != null)
         {
-            float lerpSpeed = 10f;
+            float lerpSpeed = 20f;
             Vector3 newPosition = Vector3.Lerp(transform.position, objectGrabPointTransform.position, lerpSpeed * Time.deltaTime);
+
             rb.MovePosition(newPosition);
             rb.velocity = Vector3.zero;
         }
+
+
+
+
+        
+
+
+
     }
+
+
+
+
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if(other.gameObject.tag == "Bank")
+    //    {
+    //        Destroy(objectGrabObject);
+
+
+
+    //    }
+    //}
 }
+
+

@@ -8,9 +8,7 @@ TagManager:
   - knife
   - objectBank
   - Interactable
-  - WashingMachine
-  - Door
-  - Cube
+  - Bank
   layers:
   - Default
   - TransparentFX
