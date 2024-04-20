@@ -8,6 +8,9 @@ TagManager:
   - knife
   - objectBank
   - Interactable
+  - WashingMachine
+  - Door
+  - Cube
   layers:
   - Default
   - TransparentFX
@@ -16,7 +19,7 @@ TagManager:
   - Water
   - UI
   - PickableObject
-  - 
+  - flour
   - 
   - 
   - 

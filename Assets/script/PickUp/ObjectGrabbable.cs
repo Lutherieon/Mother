@@ -15,6 +15,7 @@ public class ObjectGrabbable : MonoBehaviour
     }
     public void Grab(Transform ObjectGrabPointTransform)
     {
+
         this.objectGrabPointTransform = ObjectGrabPointTransform;
         isGrabbed=true;
         rb.useGravity = false;

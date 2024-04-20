@@ -120,6 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 820952e9fac61254ea8930cf1cc132cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectGrabPointTransform: {fileID: 0}
 --- !u!54 &8062344717910473670
 Rigidbody:
   m_ObjectHideFlags: 0

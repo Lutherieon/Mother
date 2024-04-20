@@ -10,7 +10,9 @@ public class PickUpObject : MonoBehaviour
     [SerializeField] float PickUpDistance;
     [SerializeField] Transform playerCameraTransform;
     [SerializeField] LayerMask pickableObjectLayer;
-    [SerializeField] Transform ObjectGrapPointTransform;
+    [SerializeField] public Transform ObjectGrapPointTransform;
+
+
     
 
 
@@ -21,11 +23,11 @@ public class PickUpObject : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) )
         {
             if (objectGrabbable == null) 
             {
-                if (Physics.Raycast(playerCameraTransform.position, playerCameraTransform.forward, out hit, PickUpDistance, pickableObjectLayer))
+                if (Physics.Raycast(playerCameraTransform.position, playerCameraTransform.forward, out hit, PickUpDistance, pickableObjectLayer) )
                 {
                     if (hit.transform.TryGetComponent(out objectGrabbable))
                     {
@@ -40,6 +42,7 @@ public class PickUpObject : MonoBehaviour
             {
                 objectGrabbable.Drop();
                 objectGrabbable = null;
+                
             }
             
 

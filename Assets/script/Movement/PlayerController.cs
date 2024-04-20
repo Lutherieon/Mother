@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -19,6 +21,12 @@ public class FPS : MonoBehaviour
     private Vector3 m_cameraRotation;
     private float m_lookSensitivity = 3.0f;
     private bool m_cursorIsLocked = true;
+    public float jumpSpeed = 250f;
+    [SerializeField]Collider m_collider;
+    public float maxDistanceRay = 0.01f;
+    [SerializeField] LayerMask flour;
+    [SerializeField] Vector3 offset;
+    bool isgrounded;
 
     [Header("The Camera the player looks through")]
     public Camera m_Camera;
@@ -32,7 +40,14 @@ public class FPS : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
-        
+        isGrounded();
+
+        if (Input.GetKeyDown(KeyCode.Space) && isgrounded)
+        {
+            m_Rigid.velocity = Vector3.up * jumpSpeed * Time.deltaTime;
+
+        }
+
         m_MovX = Input.GetAxis("Horizontal");
         m_MovY = Input.GetAxis("Vertical");
 
@@ -94,6 +109,31 @@ public class FPS : MonoBehaviour
         }
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     private void UnlockCursor()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -104,6 +144,35 @@ public class FPS : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+    }
+
+
+    private void isGrounded()
+    {
+        RaycastHit raycastHit;
+        isgrounded = Physics.BoxCast(m_collider.bounds.center - offset, m_collider.bounds.size * 0.5f, Vector3.down, out raycastHit ,Quaternion.identity,maxDistanceRay, flour, QueryTriggerInteraction.UseGlobal);
+        Color rayColor;
+
+
+        
+        
+        if (raycastHit.collider != null)
+        {
+            rayColor = Color.green;
+        }
+        else
+        {
+            rayColor = Color.red;
+        }
+        Debug.DrawRay(m_collider.bounds.center, Vector2.down * (m_collider.bounds.extents.y + maxDistanceRay), rayColor);
+        //Debug.Log(raycastHit2D.collider);
+
+        if (isgrounded)
+        {
+            Debug.Log("hit:" + raycastHit.collider.name);
+            //rb.velocity = Vector3.zero;
+        }
+
     }
 
 }
