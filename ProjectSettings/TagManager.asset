@@ -6,6 +6,8 @@ TagManager:
   tags:
   - oven
   - knife
+  - objectBank
+  - Interactable
   layers:
   - Default
   - TransparentFX

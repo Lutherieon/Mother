@@ -11,8 +11,14 @@ public class PickUpObject : MonoBehaviour
     [SerializeField] Transform playerCameraTransform;
     [SerializeField] LayerMask pickableObjectLayer;
     [SerializeField] Transform ObjectGrapPointTransform;
+    
+
 
     private ObjectGrabbable objectGrabbable;
+
+    private void Start()
+    {
+    }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
@@ -24,6 +30,7 @@ public class PickUpObject : MonoBehaviour
                     if (hit.transform.TryGetComponent(out objectGrabbable))
                     {
                         objectGrabbable.Grab(ObjectGrapPointTransform);
+
                     }
 
                 }

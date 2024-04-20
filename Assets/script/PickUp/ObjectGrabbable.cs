@@ -4,23 +4,26 @@ using UnityEngine;
 
 public class ObjectGrabbable : MonoBehaviour
 {
+    public static bool isGrabbed;
     private Rigidbody rb;
-    private Transform objectGrabPointTransform;
+    public Transform objectGrabPointTransform;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-
+        isGrabbed = false;
     }
     public void Grab(Transform ObjectGrabPointTransform)
     {
         this.objectGrabPointTransform = ObjectGrabPointTransform;
+        isGrabbed=true;
         rb.useGravity = false;
     }
 
     public void Drop()
     {
         this.objectGrabPointTransform = null;
+        isGrabbed = false;
         rb.useGravity = true;
 
 

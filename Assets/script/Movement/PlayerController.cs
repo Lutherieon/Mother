@@ -32,7 +32,7 @@ public class FPS : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
-
+        
         m_MovX = Input.GetAxis("Horizontal");
         m_MovY = Input.GetAxis("Vertical");
 
