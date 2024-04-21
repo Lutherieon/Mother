@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MotherKitchen.unity
+    guid: bc1c2a12c75a3ed46b1adee83663fae7
+  - enabled: 1
+    path: Assets/Scenes/END.unity
+    guid: bd9babfdc091ae440902f32980c8ca35
   m_configObjects: {}
