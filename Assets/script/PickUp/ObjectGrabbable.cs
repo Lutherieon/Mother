@@ -41,7 +41,7 @@ public class ObjectGrabbable : MonoBehaviour
     {
         if(objectGrabPointTransform != null)
         {
-            float lerpSpeed = 20f;
+            float lerpSpeed = 15f;
             Vector3 newPosition = Vector3.Lerp(transform.position, objectGrabPointTransform.position, lerpSpeed * Time.deltaTime);
 
             rb.MovePosition(newPosition);
@@ -56,7 +56,10 @@ public class ObjectGrabbable : MonoBehaviour
 
 
     }
-
+    private void OnMouseDown()
+    {
+        
+    }
 
 
 
