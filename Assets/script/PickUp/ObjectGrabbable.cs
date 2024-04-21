@@ -65,6 +65,7 @@ public class ObjectGrabbable : MonoBehaviour
         if(other.gameObject.tag == "Bank")
         {
             Destroy(objectGrabObject);
+            ScoreManager.score += 100;
         }
     }
 }
