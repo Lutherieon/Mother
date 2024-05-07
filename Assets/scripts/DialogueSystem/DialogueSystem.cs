@@ -8,13 +8,15 @@ public class DialogueSystem : MonoBehaviour
     [SerializeField] private string[] sentenceOrder;
     [SerializeField] private float writingSpeed;
     [SerializeField] private GameObject dialogueCanvas;
+    [SerializeField] private Transform Player;
+    [SerializeField] private CharacterController characterController;
     private int index;
 
     private void Start()
     {
         dialogueText.text = string.Empty;
         if (dialogueCanvas != null)
-            dialogueCanvas.SetActive(false); // Hide the dialogue canvas initially
+            dialogueCanvas.SetActive(true); // Hide the dialogue canvas initially
         StartDialogue();
     }
 
@@ -30,6 +32,10 @@ public class DialogueSystem : MonoBehaviour
     {
         index = 0;
         dialogueText.text = string.Empty;
+        if(Player.TryGetComponent(out characterController))
+        {
+            characterController.enabled = false;
+        }
         StartCoroutine(WritingOrder());
     }
 
@@ -61,7 +67,12 @@ public class DialogueSystem : MonoBehaviour
             // End of dialogue
             dialogueText.text = string.Empty;
             if (dialogueCanvas != null)
+            {
                 dialogueCanvas.SetActive(false); // Close the dialogue canvas
+            }
+            characterController.enabled = true;
+
+
         }
     }
 }

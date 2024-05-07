@@ -10,8 +10,8 @@ public class StartConversation : InteractableBase
     private DialogueSystem dialogueSystem;
     public override void OnInteract()
     {
-        base.OnInteract();
-        dialogueCanvas.gameObject.SetActive(true);
-        //dialogueSystem.GetComponent<DialogueSystem>().ResetSentence();
+        //base.OnInteract();
+        //dialogueCanvas.gameObject.SetActive(true);
+        ////dialogueSystem.GetComponent<DialogueSystem>().ResetSentence();
     }
 }
