@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class TimeScript : MonoBehaviour
 {
     public static TimeScript instance;
-    public  static float TimeLeft = 60f; // Example starting time
+    public  static float TimeLeft = 67f; // Example starting time
     public bool TimerOn = false;
     public Text TimerText;
     [SerializeField] private Image image;
