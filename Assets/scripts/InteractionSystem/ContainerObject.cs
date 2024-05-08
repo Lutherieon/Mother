@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 namespace VHS
 {
-    public class ContainerObject : InteractableBase
+    public class ContainerObject : InteractableBase, IpickableObjectParent
     {
         [SerializeField] private PickableObjectSO PickableObjectSO;
         [SerializeField] private Transform Slot;
@@ -13,7 +13,6 @@ namespace VHS
 
         [SerializeField] private ContainerObject secondDestroyInteractable;
         [SerializeField] public bool isTesting;
-
         private void Awake()
         {
 
@@ -27,7 +26,7 @@ namespace VHS
             {
                 if(PickableObject != null)
                 {
-                    PickableObject.SetContainerObject(secondDestroyInteractable);
+                    PickableObject.SetPickableObjectParent(secondDestroyInteractable);
                     //Debug.Log(PickableObject.GetDestroyBank());
                 }
             }
@@ -41,12 +40,23 @@ namespace VHS
 
             
             base.OnInteract();
-            if(PickableObject == null)
+            
+            
+
+
+           
+        }
+
+
+
+        public void Interact(CharacterController character)
+        {
+            if (PickableObject == null)
             {
                 Debug.Log("Interacted.");
-           
+
                 Transform pickableObjectTransform = Instantiate(PickableObjectSO.prefab, Slot);
-                pickableObjectTransform.GetComponent<PickableObject>().SetContainerObject(this);
+                pickableObjectTransform.GetComponent<PickableObject>().SetPickableObjectParent(this);
                 //pickableObjectTransform.localPosition = Vector3.zero;
 
                 //PickableObject = pickableObjectTransform.GetComponent<PickableObject>();
@@ -55,17 +65,17 @@ namespace VHS
             }
             else
             {
-                Debug.Log(PickableObject.GetDestroyBank());
+                //CharacterController characterController = GetComponent<CharacterController>();
+                //PickableObject.SetPickableObjectParent(character);
+                Debug.Log(PickableObject.GetPickableObjectParent());
             }
-            
 
 
-           
         }
 
         public Transform GetSlotPointTransform()
         {
-
+             
             return Slot;
         }
 

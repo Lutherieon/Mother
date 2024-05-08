@@ -10,7 +10,7 @@ public class PickableObject : MonoBehaviour
     // We will get the data from object that we picked
 
 
-    private ContainerObject containerObject;
+    private IpickableObjectParent PickableObjectParent;
 
     public PickableObjectSO GetPickbleObjectSO()
     {
@@ -20,28 +20,28 @@ public class PickableObject : MonoBehaviour
     }
 
 
-    public void SetContainerObject(ContainerObject containerObject)
+    public void SetPickableObjectParent(IpickableObjectParent PickableObjectParent)
     {
-        if(this.containerObject != null)
+        if(this.PickableObjectParent != null)
         {
-            this.containerObject.ClearPickableObject();
+            this.PickableObjectParent.ClearPickableObject();
         }
 
-        this.containerObject = containerObject;
-        if (containerObject.HasPickableObject())
+        this.PickableObjectParent = PickableObjectParent;
+        if (PickableObjectParent.HasPickableObject())
         {
             Debug.LogError("it is already has an item in its slot");
         }
-        containerObject.SetPickableObject(this);
+        PickableObjectParent.SetPickableObject(this);
         
-        transform.parent = containerObject.GetSlotPointTransform();
+        transform.parent = PickableObjectParent.GetSlotPointTransform();
         transform.localPosition= Vector3.zero; transform.localRotation = Quaternion.identity;
     }
 
 
-    public ContainerObject GetDestroyBank()
+    public IpickableObjectParent GetPickableObjectParent()
     {
-        return containerObject;
+        return PickableObjectParent;
     }
 
 }

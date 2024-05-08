@@ -4,8 +4,10 @@ using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
 
-public class CharacterMovement : MonoBehaviour
+public class CharacterMovement : MonoBehaviour, IpickableObjectParent
 {
+    [SerializeField] private Transform Slot;
+    [SerializeField] PickableObject PickableObject;
     public float walkingSpeed = 7.5f;
     public float runningSpeed = 11.5f;
     public float jumpSpeed = 8.0f;
@@ -63,5 +65,36 @@ public class CharacterMovement : MonoBehaviour
             playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
             transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
         }
+    }
+
+    public Transform GetSlotPointTransform()
+    {
+
+        return Slot;
+    }
+
+
+
+    public void SetPickableObject(PickableObject pickableObject)
+    {
+        this.PickableObject = pickableObject;
+
+    }
+
+    public PickableObject GetPickableObject()
+    {
+        return PickableObject;
+    }
+
+
+    public void ClearPickableObject()
+    {
+        PickableObject = null;
+    }
+
+
+    public bool HasPickableObject()
+    {
+        return PickableObject != null;
     }
 }
