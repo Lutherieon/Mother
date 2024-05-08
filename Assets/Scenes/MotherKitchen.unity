@@ -2146,7 +2146,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &445542833
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3463,8 +3463,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 291.07, y: -240.1408}
-  m_SizeDelta: {x: 682.14, y: 235.2564}
+  m_AnchoredPosition: {x: -365.84, y: -218.18188}
+  m_SizeDelta: {x: 731.68, y: 323.6638}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &768712472
 MonoBehaviour:
@@ -3488,10 +3488,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 28
+    m_FontSize: 35
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 3
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -5457,13 +5457,13 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1333765059}
   - {fileID: 293292259}
   - {fileID: 1993849540}
   - {fileID: 1201838290}
   - {fileID: 1747761541}
   - {fileID: 1292094890}
   - {fileID: 445542833}
-  - {fileID: 1333765059}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -6754,10 +6754,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueText: {fileID: 768712472}
   sentenceOrder:
-  - 
-  - sex
-  - sevismek
-  - porno
+  - Hey Arthur! I am going to visit your grandmother.
+  - Do not break or spill anything at home, don't misbehave.
+  - I'll be back in just 60 seconds sweetie, you be a good boy for mommy now, ok?
+    <3
   writingSpeed: 0.05
   dialogueCanvas: {fileID: 445542832}
   Player: {fileID: 1173486442}
@@ -9236,6 +9236,7 @@ MonoBehaviour:
   image: {fileID: 1292094891}
   spriteHouse1: {fileID: 21300000, guid: a8f1772518117ab40a831e0ec7d28207, type: 3}
   spriteHouse2: {fileID: 21300000, guid: 11b3c3b031ef91e4f859b300a30860df, type: 3}
+  dialogueSystem: {fileID: 1263878087}
 --- !u!4 &1837342224
 Transform:
   m_ObjectHideFlags: 0

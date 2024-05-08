@@ -13,6 +13,7 @@ public class TimeScript : MonoBehaviour
     [SerializeField] private Image image;
     [SerializeField] private Sprite spriteHouse1;
     [SerializeField] private Sprite spriteHouse2;
+    [SerializeField] private DialogueSystem dialogueSystem;
     private Animator animator;
     private bool visualsRunning = false;
 
@@ -39,21 +40,29 @@ public class TimeScript : MonoBehaviour
     {
         if (TimerOn)
         {
-            if (TimeLeft > 0)
+            if (dialogueSystem.GetComponent<DialogueSystem>().isDialogue == false)
             {
-                TimeLeft -= Time.deltaTime;
-                UpdateTimer(TimeLeft);
+                if (TimeLeft > 0)
+                {
+                    TimeLeft -= Time.deltaTime;
+                    UpdateTimer(TimeLeft);
+                }
+                else
+                {
+                    Debug.Log("Death and agony!");
+                    TimeLeft = 0;
+                    TimerOn = false;
+                    if (!visualsRunning && spriteHouse1 != null && spriteHouse2 != null)
+                    {
+                        StartCoroutine(Visuals(spriteHouse1, spriteHouse2));
+                    }
+                }
             }
             else
             {
-                Debug.Log("Death and agony!");
-                TimeLeft = 0;
-                TimerOn = false;
-                if (!visualsRunning && spriteHouse1 != null && spriteHouse2 != null)
-                {
-                    StartCoroutine(Visuals(spriteHouse1, spriteHouse2));
-                }
+                return;
             }
+            
         }
     }
 
