@@ -10,6 +10,7 @@ public class DialogueSystem : MonoBehaviour
     [SerializeField] private GameObject dialogueCanvas;
     [SerializeField] private Transform Player;
     [SerializeField] private CharacterController characterController;
+    [SerializeField] public bool isDialogue;
     private int index;
 
     private void Start()
@@ -17,6 +18,7 @@ public class DialogueSystem : MonoBehaviour
         dialogueText.text = string.Empty;
         if (dialogueCanvas != null)
             dialogueCanvas.SetActive(true); // Hide the dialogue canvas initially
+        isDialogue = true;
         StartDialogue();
     }
 
@@ -26,6 +28,7 @@ public class DialogueSystem : MonoBehaviour
         {
             NextSentence();
         }
+        Debug.Log(isDialogue);
     }
 
     public void StartDialogue()
@@ -70,6 +73,7 @@ public class DialogueSystem : MonoBehaviour
             {
                 dialogueCanvas.SetActive(false); // Close the dialogue canvas
             }
+            isDialogue = false;
             characterController.enabled = true;
 
 

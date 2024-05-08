@@ -3,19 +3,40 @@ using UnityEngine;
 
 public class CarMovement : MonoBehaviour
 {
+
+    [SerializeField] private DialogueSystem DialogueSystem;
+    private bool coroutineRunning = false;
+    private Coroutine coroutine;
     void Start()
     {
-        StartCoroutine(CarMoveOrder());
+        if (DialogueSystem == null)
+        {
+            DialogueSystem.GetComponent<DialogueSystem>();
+        }
     }
 
     void Update()
     {
+        if(!DialogueSystem.isDialogue)
         transform.Translate(new Vector3(0, 0.1f, 0));
+
+
+        if(!DialogueSystem.isDialogue && !coroutineRunning)
+        {
+            coroutine = StartCoroutine(CarMoveOrder());
+            coroutineRunning = true;
+        }
+        else if (DialogueSystem.isDialogue && coroutineRunning)
+        {
+            StopCoroutine(coroutine);
+            coroutineRunning = false;
+        }
+
     }
 
     IEnumerator CarMoveOrder()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1.3f);
 
         Quaternion startRotation = Quaternion.Euler(-90, 0, -90);
         Quaternion endRotation = Quaternion.Euler(-90, 90, -90);
