@@ -8,6 +8,7 @@ public class CarMovement : MonoBehaviour
     private bool coroutineRunning = false;
     private Coroutine coroutine;
     public Animator car_drift;
+  
     void Start()
     {
         if (DialogueSystem == null)
@@ -20,6 +21,7 @@ public class CarMovement : MonoBehaviour
         if (!DialogueSystem.isDialogue)
         {
             car_drift.SetBool("CarAnimBool", true);
+           
         }
         else { return; }
     }
