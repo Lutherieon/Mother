@@ -13,6 +13,14 @@ public class DialogueSystem : MonoBehaviour
     [SerializeField] public bool isDialogue;
     private int index;
 
+
+    [SerializeField] AudioManager audioManager;
+
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
+    }
     private void Start()
     {
         dialogueText.text = string.Empty;
@@ -47,6 +55,7 @@ public class DialogueSystem : MonoBehaviour
         foreach (char letter in sentenceOrder[index].ToCharArray())
         {
             dialogueText.text += letter;
+            audioManager.PlaySFX(audioManager.DialogueSFX);
             yield return new WaitForSeconds(writingSpeed);
         }
     }
