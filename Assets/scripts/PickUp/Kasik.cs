@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using Unity.VisualScripting;
 using UnityEngine;
-public class Fork : BaseObjectGrabable
+
+public class Kasik : BaseObjectGrabable
 {
     public static bool isGrabbed;
     private Rigidbody rb;
@@ -12,11 +11,8 @@ public class Fork : BaseObjectGrabable
     public GameObject point;
     public ParticleSystem ParticleSystem;
     private AudioManager audioManager;
-    private FriendManager friendManager;
-
     private void Awake()
     {
-        friendManager = GameObject.FindGameObjectWithTag("FriendManager").GetComponent<FriendManager>();    
         audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
         rb = GetComponent<Rigidbody>();
         isGrabbed = false;
@@ -56,18 +52,17 @@ public class Fork : BaseObjectGrabable
 
 
 
+
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Bank")
         {
             Destroy(objectGrabObject);
             ParticleSystem.Play();
-            friendManager.veveState = friendManager.veveState_Electro;
-            audioManager.PlaySFX(audioManager.ElectMicroWave);
-
-            ScoreManager.score += 100;
+            audioManager.PlaySFX(audioManager.ElectSocket);
+            ScoreManager.score += 50;
         }
     }
+
 }
-
-

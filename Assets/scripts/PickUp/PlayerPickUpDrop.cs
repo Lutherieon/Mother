@@ -9,22 +9,22 @@ public class PlayerPickUpDrop : MonoBehaviour {
     [SerializeField] private Transform objectGrabPointTransform;
     [SerializeField] private LayerMask pickUpLayerMask;
 
-    private ObjectGrabbable objectGrabbable;
+    private BaseObjectGrabable BaseobjectGrabbable;
 
     private void Update() {
         if (Input.GetKeyDown(KeyCode.E)) {
-            if (objectGrabbable == null) {
+            if (BaseobjectGrabbable == null) {
                 // Not carrying an object, try to grab
                 float pickUpDistance = 4f;
                 if (Physics.Raycast(playerCameraTransform.position, playerCameraTransform.forward, out RaycastHit raycastHit, pickUpDistance, pickUpLayerMask)) {
-                    if (raycastHit.transform.TryGetComponent(out objectGrabbable)) {
-                        objectGrabbable.Grab(objectGrabPointTransform);
+                    if (raycastHit.transform.TryGetComponent(out BaseobjectGrabbable)) {
+                        BaseobjectGrabbable.Grab(objectGrabPointTransform);
                     }
                 }
             } else {
                 // Currently carrying something, drop
-                objectGrabbable.Drop();
-                objectGrabbable = null;
+                BaseobjectGrabbable.Drop();
+                BaseobjectGrabbable = null;
             }
         }
     }

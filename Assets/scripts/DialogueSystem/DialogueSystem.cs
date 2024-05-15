@@ -78,13 +78,14 @@ public class DialogueSystem : MonoBehaviour
         {
             // End of dialogue
             dialogueText.text = string.Empty;
+            
             if (dialogueCanvas != null)
             {
                 dialogueCanvas.SetActive(false); // Close the dialogue canvas
             }
             isDialogue = false;
             characterController.enabled = true;
-
+            audioManager.StopSFX();
 
         }
     }

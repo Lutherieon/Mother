@@ -13,6 +13,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip endLevel;
     public AudioClip CarSound;
     public AudioClip ElectMicroWave;
+    public AudioClip ElectSocket;
     public AudioClip DialogueSFX;
 
     private void Start()
@@ -27,6 +28,12 @@ public class AudioManager : MonoBehaviour
     {
 
         SFXSource.PlayOneShot(audioClip);
+    }
+
+
+    public void StopSFX()
+    {
+        SFXSource.Stop();
     }
 
 

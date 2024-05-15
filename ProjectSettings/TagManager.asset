@@ -10,6 +10,7 @@ TagManager:
   - Interactable
   - Bank
   - AudioManager
+  - FriendManager
   layers:
   - Default
   - TransparentFX
