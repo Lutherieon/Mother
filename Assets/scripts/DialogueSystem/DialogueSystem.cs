@@ -84,8 +84,9 @@ public class DialogueSystem : MonoBehaviour
                 dialogueCanvas.SetActive(false); // Close the dialogue canvas
             }
             isDialogue = false;
+            StopAllCoroutines();
             characterController.enabled = true;
-            audioManager.StopSFX();
+            //audioManager.StopSFX(); // bug yapiyordu oyundaki tum sesleri kapatiyordu.
 
         }
     }

@@ -8,10 +8,15 @@ public class CamSwitching : MonoBehaviour
     [SerializeField] private Camera camTopDown;
     [SerializeField] private float delayAfterDialogue = 2.5f; // Delay in seconds after dialogue ends
 
+    [SerializeField] AudioManager audioManager;
+    private bool canPlayBackgroundMusic;
+
+
     private bool lastDialogueState;
 
     private void Awake()
     {
+        audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
         // Ensure the DialogueSystem is correctly assigned
         if (diaSystem == null) diaSystem = GetComponent<DialogueSystem>();
     }
@@ -19,6 +24,7 @@ public class CamSwitching : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        canPlayBackgroundMusic = false;
         // Initial camera state update based on the dialogue state
         UpdateCameraState(diaSystem.isDialogue);
         lastDialogueState = diaSystem.isDialogue;
@@ -39,9 +45,12 @@ public class CamSwitching : MonoBehaviour
             {
                 // If dialogue has ended, start a delay before switching back to the player camera
                 StartCoroutine(DelayedCameraSwitch());
+
+
             }
             lastDialogueState = diaSystem.isDialogue;
         }
+       
     }
 
     private IEnumerator DelayedCameraSwitch()
@@ -50,6 +59,10 @@ public class CamSwitching : MonoBehaviour
         yield return new WaitForSeconds(delayAfterDialogue);
         // After the delay, update the camera state back to the player camera
         UpdateCameraState(false);
+        yield return new WaitForSeconds(3);
+        audioManager.PlaySFX(audioManager.backgroundMusic);
+
+
     }
 
     private void UpdateCameraState(bool isDialogueActive)

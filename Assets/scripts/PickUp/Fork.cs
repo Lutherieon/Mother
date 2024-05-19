@@ -60,6 +60,10 @@ public class Fork : BaseObjectGrabable
     {
         if (other.gameObject.tag == "Bank")
         {
+            if(other.GetComponent<Bank>().type == Bank.BankType.Microwave)
+            {
+
+            }
             Destroy(objectGrabObject);
             ParticleSystem.Play();
             friendManager.veveState = friendManager.veveState_Electro;
