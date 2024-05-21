@@ -449,7 +449,6 @@ GameObject:
   m_Component:
   - component: {fileID: 814217191}
   - component: {fileID: 814217193}
-  - component: {fileID: 814217192}
   m_Layer: 0
   m_Name: veve_downside
   m_TagString: Untagged
@@ -472,27 +471,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1998861175}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &814217192
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 814217190}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 69211af9bf2995f43bb5e9991ad1c15d, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!212 &814217193
 SpriteRenderer:
   m_ObjectHideFlags: 0
