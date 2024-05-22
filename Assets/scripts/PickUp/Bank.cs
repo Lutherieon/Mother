@@ -9,6 +9,7 @@ public class Bank : MonoBehaviour
     {
         Priz,
         WashMachine,
-        Microwave
+        Microwave,
+        Perde
     }
 }

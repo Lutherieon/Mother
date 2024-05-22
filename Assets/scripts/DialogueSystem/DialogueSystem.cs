@@ -4,18 +4,23 @@ using UnityEngine.UI;
 
 public class DialogueSystem : MonoBehaviour
 {
+    [Header("Dialogue Logic")]
     [SerializeField] private Text dialogueText;
     [SerializeField] private string[] sentenceOrder;
     [SerializeField] private float writingSpeed;
-    [SerializeField] private GameObject dialogueCanvas;
-    [SerializeField] private Transform Player;
-    [SerializeField] private CharacterController characterController;
     [SerializeField] public bool isDialogue;
     private int index;
 
+    [Header("Dialogue Image Logic")]
+    [SerializeField] private GameObject dialogueCanvas;
+    [SerializeField] private GameObject DialogueImageMother;
+    [SerializeField] private GameObject DialogueImageEviLVeve;
+    [Header("Player Eneble")]
+    [SerializeField] private Transform Player;
+    [SerializeField] private CharacterController characterController;
 
+    [Header("Audio")]
     [SerializeField] AudioManager audioManager;
-
 
     private void Awake()
     {
@@ -36,6 +41,17 @@ public class DialogueSystem : MonoBehaviour
         {
             NextSentence();
         }
+        if (index == 3f) 
+        {
+            //change the images for dialogue system for the bad veve
+            DialogueImageMother.SetActive(false);
+        }
+        else if (index == 4f)
+        {
+            DialogueImageEviLVeve.SetActive(true);
+
+        }
+
         Debug.Log(isDialogue);
     }
 

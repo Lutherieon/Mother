@@ -59,9 +59,10 @@ public class CamSwitching : MonoBehaviour
         yield return new WaitForSeconds(delayAfterDialogue);
         // After the delay, update the camera state back to the player camera
         UpdateCameraState(false);
+        audioManager.PlaySFX(audioManager.backgroundMusic);
         yield return new WaitForSeconds(3);
 
-        audioManager.PlaySFX(audioManager.backgroundMusic);
+
 
 
     }

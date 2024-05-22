@@ -15,6 +15,8 @@ public class AudioManager : MonoBehaviour
     public AudioClip ElectMicroWave;
     public AudioClip ElectSocket;
     public AudioClip DialogueSFX;
+    public AudioClip FootStep;
+    public AudioClip FireBigSound;
 
     private void Start()
     {

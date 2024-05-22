@@ -19,10 +19,16 @@ public class CharacterMovement : MonoBehaviour, IpickableObjectParent
     CharacterController characterController;
     Vector3 moveDirection = Vector3.zero;
     float rotationX = 0;
+    private AudioManager audioManager;
 
     [HideInInspector]
     public bool canMove = true;
 
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
+    }
     void Start()
     {
         characterController = GetComponent<CharacterController>();
@@ -42,6 +48,7 @@ public class CharacterMovement : MonoBehaviour, IpickableObjectParent
         float movementDirectionY = moveDirection.y;
         moveDirection = (forward * curSpeedX) + (right * curSpeedY);
 
+
         if (Input.GetButton("Jump") && canMove && characterController.isGrounded)
         {
             moveDirection.y = jumpSpeed;
@@ -60,10 +67,12 @@ public class CharacterMovement : MonoBehaviour, IpickableObjectParent
 
         if (canMove)
         {
+
             rotationX += -Input.GetAxis("Mouse Y") * lookSpeed;
             rotationX = Mathf.Clamp(rotationX, -lookXLimit, lookXLimit);
             playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
             transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
+            
         }
     }
 
