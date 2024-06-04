@@ -9,6 +9,13 @@ public class Bottle : InteractableBase
     [SerializeField] FriendManager friendManager;
     [SerializeField] private Volume volume;
     [SerializeField] private VolumeProfile profile;
+    [SerializeField] AudioSource audioSource;
+
+    private void Awake()
+    {
+        audioSource = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioSource>();
+    }
+
     public override void OnInteract()
     {
         base.OnInteract();
@@ -16,6 +23,8 @@ public class Bottle : InteractableBase
         //Give drunk model
         volume.profile = profile;
         friendManager.veveState = friendManager.veve_Drunk;
+
+
         
     }
 }

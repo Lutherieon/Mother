@@ -8,9 +8,9 @@ public class CharacterMovement : MonoBehaviour, IpickableObjectParent
 {
     [SerializeField] private Transform Slot;
     [SerializeField] PickableObject PickableObject;
-    public float walkingSpeed = 7.5f;
-    public float runningSpeed = 11.5f;
-    public float jumpSpeed = 8.0f;
+    public float walkingSpeed = 6.5f;
+    public float runningSpeed = 10.5f;
+    public float jumpSpeed = 7.0f;
     public float gravity = 20.0f;
     public Camera playerCamera;
     public float lookSpeed = 2.0f;

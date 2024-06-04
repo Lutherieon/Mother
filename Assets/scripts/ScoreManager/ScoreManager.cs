@@ -12,12 +12,14 @@ public class ScoreManager : MonoBehaviour
     public static int score;
     int highScore;
     float currentTime;
-
+    DialogueSystem dialogueSystem;
+    [SerializeField] GameObject ScoreGameObjectCanvas;
 
 
 
     private void Awake()
     {
+        dialogueSystem = GameObject.FindGameObjectWithTag("DialogueSystem").GetComponent<DialogueSystem>();   
         Instance = this;
 
     }
@@ -29,9 +31,10 @@ public class ScoreManager : MonoBehaviour
 
     void Update()
     {
+        SetActiveController();
         currentTime = 60f - TimeScript.TimeLeft;
 
-        scoreText.text = "Score: " + score.ToString();
+        scoreText.text = score.ToString();
         highScoreText.text = "HighScore:" + PlayerPrefs.GetInt("highScore").ToString();
         if (score > PlayerPrefs.GetInt("highScore"))
         {
@@ -46,6 +49,18 @@ public class ScoreManager : MonoBehaviour
     void CountScore()
     {
         score += ((int)(currentTime * 10));
+    }
+
+    private void SetActiveController()
+    {
+        if (dialogueSystem.isDialogue)
+        {
+            ScoreGameObjectCanvas.SetActive(false);
+        }
+        else
+        {
+            ScoreGameObjectCanvas.SetActive(true);
+        }
     }
 
 }
