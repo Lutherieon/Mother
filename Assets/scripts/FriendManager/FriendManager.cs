@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class FriendManager : MonoBehaviour
 {
     [SerializeField] public Sprite veveState;
-    [SerializeField] public Sprite veveState_IDLE, veveState_EVIL, veveState_Electro;
+    [SerializeField] public Sprite veveState_IDLE, veveState_EVIL, veveState_Electro, veve_Drunk;
     [SerializeField] private Image veveStateImage;
 
 

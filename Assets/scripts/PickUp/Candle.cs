@@ -24,9 +24,11 @@ public class Candle : BaseObjectGrabable
 
     [Header("Timer")]
     private float currentTime;
+    //private TimeScript TimeScript;
 
     private void Awake()
     {
+      //  TimeScript = GameObject.FindGameObjectWithTag("Timer").GetComponent<TimeScript>();
         characterController = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMovement>();
         friendManager = GameObject.FindGameObjectWithTag("FriendManager").GetComponent<FriendManager>();
         audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
@@ -98,7 +100,7 @@ public class Candle : BaseObjectGrabable
 
             //Increase the score 
             ScoreManager.score += 100;
-
+            TimeScript.TimeLeft += 5;
         }
 
         else
