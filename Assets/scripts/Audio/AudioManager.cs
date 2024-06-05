@@ -17,7 +17,9 @@ public class AudioManager : MonoBehaviour
     public AudioClip DialogueSFX;
     public AudioClip FootStep;
     public AudioClip FireBigSound;
-
+    public AudioClip CokeOpeningSound;
+    public AudioClip GlassShadering;
+    public AudioClip radio;
     private void Start()
     {
         // buraya background gelecek.

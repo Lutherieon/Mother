@@ -56,12 +56,16 @@ public class Kasik : BaseObjectGrabable
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Bank")
+        if (other.gameObject.tag == "Bank" && other.GetComponent<Bank>().type == Bank.BankType.Priz)
         {
             Destroy(objectGrabObject);
             ParticleSystem.Play();
             audioManager.PlaySFX(audioManager.ElectSocket);
             ScoreManager.score += 50;
+        }
+        else
+        {
+            Debug.Log("bU BANKA BU OBJEYE UYGUN DEGIL!;");
         }
     }
 

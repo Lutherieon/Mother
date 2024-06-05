@@ -98,6 +98,10 @@ public class Fork : BaseObjectGrabable
 
             //Activate the electricityPowerUp
             electricitySpeed = true;
+
+            TimeScript.TimeLeft += 5f;
+
+
         }
 
         else

@@ -28,6 +28,9 @@ public class TimeScript : MonoBehaviour
 
 
 
+    float time;
+
+
 
 
     private void Awake()
@@ -58,20 +61,25 @@ public class TimeScript : MonoBehaviour
         {
             if (!dialogueSystem.isDialogue)
             {
-                if (TimeLeft > 0)
+                time += Time.deltaTime;
+                if(time > 3)
                 {
-                    TimeLeft -= Time.deltaTime;
-                    UpdateTimer(TimeLeft);
-                }
-                else
-                {
-                    Debug.Log("Death and agony!");
-                    TimeLeft = 0;
-                    TimerOn = false;
-                    if (!visualsRunning && spriteHouse1 != null && spriteHouse2 != null)
+                    if (TimeLeft > 0)
                     {
-                        StartCoroutine(Visuals(spriteHouse1, spriteHouse2));
+                        TimeLeft -= Time.deltaTime;
+                        UpdateTimer(TimeLeft);
                     }
+                    else
+                    {
+                        Debug.Log("Death and agony!");
+                        TimeLeft = 0;
+                        TimerOn = false;
+                        if (!visualsRunning && spriteHouse1 != null && spriteHouse2 != null)
+                        {
+                            StartCoroutine(Visuals(spriteHouse1, spriteHouse2));
+                        }
+                    }
+
                 }
             }
             else
